@@ -1,0 +1,35 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-3" [routerLink]="['/productos']">Volver</button>
+
+        <form>
+         <!--   <div class="fom-group">
+                <label for="sku">Sku</label>
+                <input type="text" name="sku" class="form-control">
+            </div> -->
+            <div class="fom-group">
+                <label for="descripcion">Descipcion</label>
+                <input type="text" name="descripcion" class="form-control" id="descripcion"
+                [(ngModel)]="producto.descripcion">
+                <div class="alert alert-danger" *ngIf="error?.descripcion">
+                    {{error.descripcion}}
+                </div>
+            </div>
+            <div class="fom-group">
+                <label for="precio">Precio</label>
+                <input type="text" name="precio" class="form-control"  id="precio"
+                [(ngModel)]="producto.precio">
+                <div class="alert alert-danger" *ngIf="error?.precio">
+                    {{error.precio}}
+                </div>
+            </div>
+            <div class="fom-group">
+                <button type="button"  class="btn btn-primary" 
+                    (click)="producto.sku? editar(): crear()">
+                    {{producto.sku? 'Editar': 'Crear'}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
